@@ -12,6 +12,7 @@ public class Score : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        score = gameManager.score;
         text = GetComponentInChildren<Text>();
     }
 
@@ -19,6 +20,9 @@ public class Score : MonoBehaviour {
 
     void Update() {
         if (score != gameManager.score)
-            text.text = "Score: " + gameManager.score.ToString();
+        {
+            score = gameManager.score;
+            text.text = "Score: " + score.ToString();
+        }
 	}
 }
