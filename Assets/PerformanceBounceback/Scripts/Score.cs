@@ -7,6 +7,7 @@ public class Score : MonoBehaviour {
 
     public GameManager gameManager;
     private Text text;
+    private int score;
 
     // Use this for initialization
     void Start()
@@ -15,8 +16,9 @@ public class Score : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        text.text = "Score: " + gameManager.score.ToString();
-        //Debug.Log("score" + gameManager.score.ToString());
+
+    void Update() {
+        if (score != gameManager.score)
+            text.text = "Score: " + gameManager.score.ToString();
 	}
 }

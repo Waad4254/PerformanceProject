@@ -34,19 +34,13 @@ public class BallSpawner : MonoBehaviour {
 public GameObject GetPooledBall()
 {
     ballPoolNum++;
-    if (ballPoolNum > (ballsAmount - 1))
+        if (ballPoolNum > (ballsAmount - 1))
     {
         ballPoolNum = 0;
+        
     }
-    //if we’ve run out of objects in the pool too quickly, create a new one
-    if (pooledBalls[ballPoolNum].activeInHierarchy)
-    {
-        //create a new bullet and add it to the Pooled Ball List
-        GameObject obj = Instantiate(pooledBall);
-        pooledBalls.Add(obj);
-        ballsAmount++;
-        ballPoolNum = ballsAmount - 1;
-    }
+        pooledBalls[ballPoolNum].SetActive(false);
+
         //Debug.Log("GetPooledBall returned ball number: " + ballPoolNum);
         return pooledBalls[ballPoolNum];
 }
